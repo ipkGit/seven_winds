@@ -42,7 +42,9 @@ public class User {
     private String phoneNumber;
 
     @Column(name = "email")
-    @Pattern(regexp = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,6}$")
+    @NotBlank
+    @Pattern(regexp = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$")
+    @Size(max = 30)
     private String email;
 
     @Override
