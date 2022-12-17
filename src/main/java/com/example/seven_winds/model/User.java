@@ -1,9 +1,10 @@
 package com.example.seven_winds.model;
 
+
 import lombok.*;
 import org.hibernate.Hibernate;
-
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.util.Objects;
 
 
@@ -18,16 +19,30 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user", nullable = false)
-    private Integer id;
+    @Min(1) @Max(999999999)
+    private Long id;
+
     @Column(name = "name")
+    @NotBlank
+    @Size(min = 1, max = 16)
     private String name;
+
     @Column(name = "sur_name")
+    @NotBlank
+    @Size(min = 1, max = 16)
     private String surName;
+
     @Column(name = "patronymic")
+    @NotBlank
+    @Size(min = 1, max = 16)
     private String patronymic;
+
     @Column(name = "phone_number")
+    @Pattern(regexp = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$")
     private long phoneNumber;
+
     @Column(name = "email")
+    @Pattern(regexp = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,6}$")
     private String email;
 
     @Override
