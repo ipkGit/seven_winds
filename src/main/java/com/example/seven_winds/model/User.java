@@ -39,7 +39,7 @@ public class User {
 
     @Column(name = "phone_number")
     @Pattern(regexp = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$")
-    private long phoneNumber;
+    private String phoneNumber;
 
     @Column(name = "email")
     @Pattern(regexp = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,6}$")
