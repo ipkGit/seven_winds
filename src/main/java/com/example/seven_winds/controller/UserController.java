@@ -27,7 +27,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     @Operation(summary = "Getting user by ID from DB")
-    public User getAll(@PathVariable long id) {
+    public User getUserById(@PathVariable long id) {
         return userService.getUserByID(id);
     }
 
